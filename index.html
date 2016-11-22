@@ -1,0 +1,33 @@
+<!doctype html>
+<html lang="en" ng-app="app">
+
+<head>
+    <meta charset="utf-8">
+    <title>Ng-Challenge Adneom</title>
+
+    <!-- styles -->
+    <link rel="stylesheet" href="styles/styles.css">
+
+    <!-- main dependencies -->
+    <script src="bower_components/angular/angular.js"></script>
+    
+    <!-- app.games component -->
+    <script src="app/components/games.module.js"></script>
+    <script src="app/components/games/flappybird/GamePiece.factory.js"></script>
+    <script src="app/components/games/flappybird/GameArea.factory.js"></script>
+    <script src="app/components/games/flappybird/flappybird.controller.js"></script>
+    <script src="app/components/games/flappybird/flappybird.directive.js"></script>
+    <script src="app/components/games/tetris/tetris.factory.js"></script>
+    <script src="app/components/games/tetris/tetris.controller.js"></script>
+    <script src="app/components/games/tetris/tetris.directive.js"></script>
+
+    <!-- angular modules  -->    
+    <script src="app/app.module.js"></script>
+</head>
+
+<body ng-keydown="$broadcast('keydown-evt', $event)" ng-keyup="$broadcast('keyup-evt', $event)">
+    <flappybird></flappybird>
+    <tetris></tetris>
+</body>
+
+</html>
