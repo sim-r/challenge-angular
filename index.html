@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" ng-app="app">
+<html lang="en">
 
 <head>
     <meta charset="utf-8">
@@ -10,24 +10,29 @@
 
     <!-- main dependencies -->
     <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
     
     <!-- app.games component -->
     <script src="app/components/games.module.js"></script>
     <script src="app/components/games/flappybird/GamePiece.factory.js"></script>
     <script src="app/components/games/flappybird/GameArea.factory.js"></script>
     <script src="app/components/games/flappybird/flappybird.controller.js"></script>
+ 
     <script src="app/components/games/flappybird/flappybird.directive.js"></script>
-    <script src="app/components/games/tetris/tetris.factory.js"></script>
+    <!-- <script src="app/components/games/tetris/tetris.factory.js"></script>
     <script src="app/components/games/tetris/tetris.controller.js"></script>
-    <script src="app/components/games/tetris/tetris.directive.js"></script>
+    <script src="app/components/games/tetris/tetris.directive.js"></script> -->
 
     <!-- angular modules  -->    
     <script src="app/app.module.js"></script>
+    <!-- Views -->
+       <script src="app/components/games/flappybird/login/loginCtrl.js"></script>
 </head>
 
-<body ng-keydown="$broadcast('keydown-evt', $event)" ng-keyup="$broadcast('keyup-evt', $event)">
-    <flappybird></flappybird>
-    <tetris></tetris>
+<body ng-app="app" ng-keydown="$broadcast('keydown-evt', $event)" ng-keyup="$broadcast('keyup-evt', $event)">
+    <section ui-view></section>
+    <!--flappybird></flappybird-->
+    <!-- <tetris></tetris> -->
 </body>
 
 </html>
