@@ -6,19 +6,23 @@
     GamePiece.$inject = []
 
     function GamePiece() {
-        var GamePiece = function(gameArea, width, height, color, x, y, type) {
+        var GamePiece = function(gameArea, width, height, color, x, y, type, isLogo) {
             var game = this
+            var imgLogo = new Image()
+            imgLogo.src = 'app/components/games/flappybird/assets/img/logoGame.png'
             game.type = type
             if (type === 'text') {
                 game.text = color
             }
-            game.score = 0;
+            game.score = 0
             game.width = width
             game.height = height
             game.speedX = 0
             game.speedY = 0
             game.x = x
             game.y = y
+            game.isLogo = isLogo
+
             game.update = function() {
                 var ctx = gameArea.context
                 if (game.type === 'text') {
@@ -27,7 +31,12 @@
                     ctx.fillText(game.text, game.x, game.y)
                 } else {
                     ctx.fillStyle = color
-                    ctx.fillRect(game.x, game.y, game.width, game.height)
+                    console.log('islogo :', game.isLogo)
+                    if (game.isLogo) {
+                        ctx.drawImage(imgLogo, game.x, game.y, game.width, game.height)
+                    } else {
+                        ctx.fillRect(game.x, game.y, game.width, game.height)
+                    }
                 }
             }
             game.crashWith = function(otherobj) {
@@ -45,6 +54,7 @@
                 }
                 return crash
             }
+
         }
         return GamePiece
     }
