@@ -24,7 +24,7 @@
       infos.isRunning = false
       infos.score = 0
       game.start = function () {
-        game.bird = new GamePiece(game, 30, 30, 'red', 10, 75)
+        game.bird = new GamePiece(game, 50, 50, 'red', 10, 75, null, true)
         game.interval = $interval(game.updateGameArea, 20)
         infos.isRunning = true
         infos.score = 0
@@ -57,8 +57,8 @@
             min = 50
             max = 100
             gap = Math.floor(Math.random() * (max - min + 1) + min)
-            game.obstacles.push(new GamePiece(game, 10, height, 'green', x, 0))
-            game.obstacles.push(new GamePiece(game, 10, x - height - gap, 'green', x, height + gap))
+            game.obstacles.push(new GamePiece(game, 10, height, 'pink', x, 0, null, false))
+            game.obstacles.push(new GamePiece(game, 10, x - height - gap, 'pink', x, height + gap, null, false))
           }
           for (i = 0; i < game.obstacles.length; i += 1) {
             game.obstacles[i].x += -1

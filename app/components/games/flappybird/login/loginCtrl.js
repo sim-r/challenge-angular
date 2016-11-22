@@ -14,5 +14,13 @@ angular.module('app')
     .controller('loginCtrl', ['$scope', loginCtrl])
 
 function loginCtrl ($scope) {
+  var vm = this
 
+  vm.isGameOn = false
+
+  vm.initGame = initGame
+
+  function initGame () {
+    vm.isGameOn = true
+  }
 }
