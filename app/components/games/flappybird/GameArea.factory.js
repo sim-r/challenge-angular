@@ -3,9 +3,9 @@
     angular.module('app.games')
         .factory('GameArea', GameArea)
 
-    GameArea.$inject = ['GamePiece', '$interval']
+    GameArea.$inject = ['$rootScope', 'GamePiece', '$interval']
 
-    function GameArea(GamePiece, $interval) {
+    function GameArea($rootScope, GamePiece, $interval) {
         /**
          * @class GameArea
          * @classdesc Creates a new game area.
@@ -24,7 +24,7 @@
             infos.isRunning = false
             infos.score = 0
             game.start = function() {
-                game.bird = new GamePiece(game, 50, 50, 'red', 10, 75, null, true)
+                game.bird = new GamePiece(game, 40, 40, 'red', 10, 75, null, true)
                 game.interval = $interval(game.updateGameArea, 20)
                 infos.isRunning = true
                 infos.score = 0
@@ -32,6 +32,7 @@
             game.stop = function() {
                 $interval.cancel(game.interval)
                 infos.isRunning = false
+				$rootScope.$broadcast('game-end', infos.score)
             }
             game.clear = function() {
                 game.context.clearRect(0, 0, canvaWidth, canvaHeight)

@@ -1,11 +1,34 @@
 <div style="position:relative;">
-    <form class="login" ng-if="!vm.isGameOn">
-    	<img src="app/components/games/flappybird/assets/img/welcome.png" alt="welcome"><br>
+    <form class="login" ng-if="!vm.isGameOn && !vm.isGameOver">
+		<img src="app/components/games/flappybird/assets/img/welcome.png" alt="welcome"><br>
     	<label for="pseudo"><h1>ENTER YOUR GAMER NAME :</h1></label><br>
-    	<input type="text" name="pseudo"><br><br>
+    	<input type="text" ng-model="vm.login" name="pseudo"><br><br>
     	<input type="submit" name="valid" ng-click="vm.initGame()">
     </form>
-    <div ng-if="vm.isGameOn">
+    <div ng-if="vm.isGameOn && !vm.isGameOver">
     	<flappybird></flappybird>
+    </div>
+    
+    <div ng-if="vm.isGameOver">
+        <table>
+            <thead>
+                <tr>
+                    Pseudo
+                </tr>
+                <tr>
+                    Score
+                </tr>
+            </thead>
+            <tbody>
+                <tr ng-repeat="line in vm.score">
+                    <td>
+                        {{line.login}}
+                    </td>
+                    <td>
+                        {{line.score}} pts
+                    </td>
+                </tr>
+            </tbody>
+        </table>
     </div>
 </div>
