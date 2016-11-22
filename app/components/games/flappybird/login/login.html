@@ -1,6 +1,8 @@
 <div style="position:relative;">
-    <form ng-if="!vm.isGameOn">
-    	<input type="text" name="pseudo">
+    <form class="login" ng-if="!vm.isGameOn">
+    	<img src="app/components/games/flappybird/assets/img/welcome.png" alt="welcome"><br>
+    	<label for="pseudo"><h1>ENTER YOUR GAMER NAME :</h1></label><br>
+    	<input type="text" name="pseudo"><br><br>
     	<input type="submit" name="valid" ng-click="vm.initGame()">
     </form>
     <div ng-if="vm.isGameOn">

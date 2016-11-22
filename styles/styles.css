@@ -45,3 +45,8 @@ html, body {
 	margin-bottom: 50px;
 	padding-top: 30px;
 }
+
+.login{
+    text-align: center;
+    margin-top: 100px;
+}
