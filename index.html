@@ -11,6 +11,7 @@
     <!-- main dependencies -->
     <script src="bower_components/angular/angular.js"></script>
     <script src="bower_components/angular-ui-router/release/angular-ui-router.js"></script>
+	<script src="bower_components/angular-local-storage/dist/angular-local-storage.min.js"></script>
     
     <!-- app.games component -->
     <script src="app/components/games.module.js"></script>
@@ -31,8 +32,7 @@
 
 <body ng-app="app" ng-keydown="$broadcast('keydown-evt', $event)" ng-keyup="$broadcast('keyup-evt', $event)">
     <section ui-view></section>
-    <!--flappybird></flappybird-->
-    <!-- <tetris></tetris> -->
+    <flappybird></flappybird>
 </body>
 
 </html>
